@@ -40,6 +40,8 @@ public class Submit615FForm extends Baseclass {
 		Logger log = logfile.getlogger();
 
 		log.info("test whaterver");
+				int i=8;
+				
 
 		asi = new test615(driver);
 		asi.callFinalSubmission(date, modelva, doorQuty, spfValue, doorWid, doorHeig, doorloc, motorLoc, windowqty,
@@ -56,6 +58,7 @@ public class Submit615FForm extends Baseclass {
 		String ActualPrice = cartpage.getPriceForAddedProduct();
 
 		Assert.assertEquals(ActualPrice, ExpectedPrice);
+				
 
 	}
 
