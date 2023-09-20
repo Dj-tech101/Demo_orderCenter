@@ -1,0 +1,109 @@
+warning: in the working copy of 'test-output/Default suite/Default test.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/Default suite/Default test.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/Suite/Test.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/Suite/Test.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/emailable-report.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/jquery-3.6.0.min.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/junitreports/TEST-Ordercenter_Testcases.Submit615Form.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/junitreports/TEST-Ordercenter_Testcases.submit615AwForm.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/classes.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/main.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/methods-alphabetical.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/methods-not-run.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/methods.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Default suite/toc.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/classes.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/main.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/methods-alphabetical.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/methods-not-run.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/methods.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/Suite/toc.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/old/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports1.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-reports2.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng-results.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'test-output/testng.css', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/test/java/Ordercenter_Testcases/Submit615FForm.java b/src/test/java/Ordercenter_Testcases/Submit615FForm.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4badf00[m
+[1m--- /dev/null[m
+[1m+++ b/src/test/java/Ordercenter_Testcases/Submit615FForm.java[m
+[36m@@ -0,0 +1,73 @@[m
+[32m+[m[32mpackage Ordercenter_Testcases;[m
+[32m+[m
+[32m+[m[32mimport java.io.FileNotFoundException;[m
+[32m+[m[32mimport java.io.IOException;[m
+[32m+[m
+[32m+[m[32mimport org.apache.log4j.Logger;[m
+[32m+[m[32mimport org.apache.poi.EncryptedDocumentException;[m
+[32m+[m[32mimport org.testng.Assert;[m
+[32m+[m[32mimport org.testng.annotations.DataProvider;[m
+[32m+[m[32mimport org.testng.annotations.Test;[m
+[32m+[m
+[32m+[m[32mimport AsiPages.test615;[m
+[32m+[m[32mimport XlutilityPackage.DataProviderName;[m
+[32m+[m[32mimport log4jfile.logfile;[m
+[32m+[m[32mimport orderCenter_BaseClass.Baseclass;[m
+[32m+[m[32mimport pages.Dashboard;[m
+[32m+[m[32mimport pages.addProductDetails;[m
+[32m+[m[32mimport pages.cartPage;[m
+[32m+[m[32mimport pages.loginPage;[m
+[32m+[m[32mimport pages.orderCenter;[m
+[32m+[m[32mimport pages.orderCenterProducts;[m
+[32m+[m
+[32m+[m[32mpublic class Submit615FForm extends Baseclass {[m
+[32m+[m
+[32m+[m	[32mpublic loginPage login;[m
+[32m+[m	[32mpublic Dashboard dashboard;[m
+[32m+[m	[32mpublic orderCenter ordercenterPage;[m
+[32m+[m	[32mpublic orderCenterProducts orderCenterProductspage;[m
+[32m+[m	[32mpublic addProductDetails add;[m
+[32m+[m	[32mpublic cartPage cartpage;[m
+[32m+[m	[32mpublic test615 asi;[m
+[32m+[m
+[32m+[m	[32m@Test(dataProvider = "test1", retryAnalyzer = RetryAnalysisPackage.RetryOne.class)[m
+[32m+[m
+[32m+[m	[32mpublic void ValidateDoorNumberSubmition123(String date, String modelva, String doorQuty, String spfValue,[m
+[32m+[m			[32mString doorWid, String doorHeig, String doorloc, String motorLoc, String windowqty, String incomingpower,[m
+[32m+[m			[32mString lineloadreacotr, String additionalCable, String additionalPhotocellHeight)[m
+[32m+[m			[32mthrows InterruptedException, FileNotFoundException {[m
+[32m+[m
+[32m+[m		[32mLogger log = logfile.getlogger();[m
+[32m+[m
+[32m+[m		[32mlog.info("test whaterver");[m
+[32m+[m[41m				[m
+[32m+[m
+[32m+[m		[32masi = new test615(driver);[m
+[32m+[m		[32masi.callFinalSubmission(date, modelva, doorQuty, spfValue, doorWid, doorHeig, doorloc, motorLoc, windowqty,[m
+[32m+[m				[32mincomingpower, lineloadreacotr, additionalCable, additionalPhotocellHeight);[m
+[32m+[m		[32mString ExpectedPrice = asi.getFinalPriceForm();[m
+[32m+[m
+[32m+[m		[32masi.clickOnSubmitButton();[m
+[32m+[m		[32morderCenterProductspage = new orderCenterProducts(driver);[m
+[32m+[m
+[32m+[m		[32morderCenterProductspage.clickOnCartButton();[m
+[32m+[m
+[32m+[m		[32mcartpage = new cartPage(driver);[m
+[32m+[m
+[32m+[m		[32mString ActualPrice = cartpage.getPriceForAddedProduct();[m
+[32m+[m
+[32m+[m		[32mAssert.assertEquals(ActualPrice, ExpectedPrice);[m
+[32m+[m[41m				[m
+[32m+[m
+[32m+[m	[32m}[m
+[32m+[m
+[32m+[m	[32m@DataProvider(name = "test1")[m
+[32m+[m	[32mpublic String[][] data() throws EncryptedDocumentException, IOException {[m
+[32m+[m
+[32m+[m		[32mString path = "C:\\Users\\webca\\eclipse-workspace\\ordercenterASI\\testDataOn615\\FinalSubmission.xlsx";[m
+[32m+[m
+[32m+[m		[32mDataProviderName data = new DataProviderName(path);[m
+[32m+[m
+[32m+[m		[32mreturn data.getdataProvider(path);[m
+[32m+[m	[32m}[m
+[32m+[m[32m}[m

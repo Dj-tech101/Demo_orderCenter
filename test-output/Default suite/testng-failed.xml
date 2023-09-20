@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Ordercenter_Testcases.Submit615Form">
+      <class name="Ordercenter_Testcases.Submit615FForm">
         <methods>
-          <include name="ValidateDoorNumberSubmition123" invocation-numbers="0"/>
           <include name="lounchingBrowser"/>
           <include name="tearDown"/>
+          <include name="ValidateDoorNumberSubmition123" invocation-numbers="0"/>
         </methods>
-      </class> <!-- Ordercenter_Testcases.Submit615Form -->
+      </class> <!-- Ordercenter_Testcases.Submit615FForm -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
