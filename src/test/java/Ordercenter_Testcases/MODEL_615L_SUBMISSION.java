@@ -22,7 +22,7 @@ import pages.loginPage;
 import pages.orderCenter;
 import pages.orderCenterProducts;
 
-public class MODEL_615F_SUBMISSION extends Baseclass {
+public class MODEL_615L_SUBMISSION extends Baseclass {
 
 	public loginPage login;
 	public Dashboard dashboard;
@@ -30,16 +30,11 @@ public class MODEL_615F_SUBMISSION extends Baseclass {
 	public orderCenterProducts orderCenterProductspage;
 	public addProductDetails add;
 	public cartPage cartpage;
-	public test615F asi;
+	public test615L asi;
 
 	@Test(dataProvider = "615fDetails", retryAnalyzer = RetryAnalysisPackage.RetryOne.class)
 
-	public void ValidateSubmission(String date, String modelva, String doorQuty, 
-			String spfValue, String doorWid, String doorHeig,
-String motorLoc, String firstphotocel, String curtainColore, 
-String bottomCurtainColore, String sideguideColore, String motorCover,
-String drumHoodFascia, String visionScreen, String windowqty, String incomingpower,
-String lineloadreacotr, String additionalCable, String additionalPhotocellHeight,String additionalphotcell, String doornumber)
+	public void validate615lsubmission(String date, String modelva, String doornumber, String doorQuty, String spfValue, String doorWid, String doorHeig, String doorloc, String motorLoc, String incomingpower)
 			throws InterruptedException, FileNotFoundException {
 
 		Logger log = logfile.getlogger();
@@ -47,8 +42,8 @@ String lineloadreacotr, String additionalCable, String additionalPhotocellHeight
 		log.info("test whaterver");
 				
 
-		asi = new test615F(driver);
-		asi.callFinalSubmission(date, modelva, doorQuty, spfValue, doorWid, doorHeig, motorLoc, motorLoc, firstphotocel, curtainColore, bottomCurtainColore, sideguideColore, motorCover, drumHoodFascia, visionScreen, windowqty, incomingpower, lineloadreacotr, additionalCable, additionalphotcell, additionalPhotocellHeight, additionalphotcell,doornumber);
+		asi = new test615L(driver);
+		asi.callFinalSubmission(date, modelva, doornumber, doorQuty, spfValue, doorWid, doorHeig, doorloc, motorLoc, incomingpower);
 		;
 		String ExpectedPrice = asi.getFinalPriceForm();
 
@@ -69,7 +64,7 @@ String lineloadreacotr, String additionalCable, String additionalPhotocellHeight
 	@DataProvider(name = "615fDetails")
 	public String[][] data() throws EncryptedDocumentException, IOException {
 
-		String path = "C:\\Users\\webca\\eclipse-workspace\\ordercenterASI\\testData\\test615F.xlsx";
+		String path = "C:\\Users\\webca\\eclipse-workspace\\ordercenterASI\\testData\\test615L.xlsx";
 
 		DataProviderName data = new DataProviderName(path);
 

@@ -27,6 +27,7 @@ public class Baseclass {
 
 	public propertyFile pro;
 
+	@SuppressWarnings("unused")
 	@BeforeMethod
 	public void lounchingBrowser() throws InterruptedException, IOException {
 

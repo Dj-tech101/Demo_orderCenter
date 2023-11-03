@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.xml.sax.Locator;
 
-public class test615F {
+public class test615L {
 
 	public WebDriver driver;
 
@@ -30,7 +30,7 @@ public class test615F {
 
 	public WebDriverWait wait;
 
-	public test615F(WebDriver driver) {
+	public test615L(WebDriver driver) {
 
 		this.driver = driver;
 
@@ -204,11 +204,7 @@ public class test615F {
 		// System.out.println(doorquantity);
 		// Thread.sleep(1500);
 		Actions act = new Actions(driver);
-
-
-		// act.sendKeys(element, doorquantity).build().perform();
-		 wait.until(ExpectedConditions.visibilityOf(doorQuantity)).sendKeys(doorquantity);
-
+		doorQuantity.sendKeys(doorquantity);
 		;
 
 	}
@@ -239,11 +235,9 @@ public class test615F {
 		// Thread.sleep(1500);
 		Actions act = new Actions(driver);
 
-//
-//		 wait.until(ExpectedConditions.visibilityOf(doorQuantity)).sendKeys(doorquantity);
-//		;
-		
 		doorNumber.sendKeys(doorquantity);
+		// wait.until(ExpectedConditions.visibilityOf(doorQuantity)).sendKeys(doorquantity);
+		;
 
 	}
 
@@ -262,7 +256,7 @@ public class test615F {
 	@FindBy(xpath = "//li[@role='option']")
 	List<WebElement> spflist;
 
-	public void spfselection(String model) throws InterruptedException {
+	public void spfselection(String model) {
 
 		for (int i = 0; i < spflist.size(); i++) {
 
@@ -272,7 +266,6 @@ public class test615F {
 
 				spflist.get(i).click();
 
-				break;
 			}
 		}
 
@@ -285,6 +278,7 @@ public class test615F {
 
 	public void doorWidthSendkey(String date) {
 
+		wait = new WebDriverWait(driver, Duration.ofSeconds(500));
 
 		wait.until(ExpectedConditions.visibilityOf(doorWidth)).sendKeys(date);
 	}
@@ -411,7 +405,7 @@ public class test615F {
 			if (modelText.equalsIgnoreCase(model)) {
 
 				act = new Actions(driver);
-				act.moveToElement(DoorLocationlist.get(i)).click(DoorLocationlist.get(i)).click().build().perform();
+				act.moveToElement(DoorLocationlist.get(i)).click(DoorLocationlist.get(i)).build().perform();
 
 			}
 		}
@@ -443,9 +437,8 @@ public class test615F {
 	public void motorLocation(String value) throws InterruptedException {
 		if (!value.equals("null")) {
 
-			motorLocation.click();
-//			Actions act5 = new Actions(driver);
-//			act5.moveToElement(motorLocation).click(motorLocation).build().perform();
+			Actions act5 = new Actions(driver);
+			act5.moveToElement(motorLocation).click(motorLocation).build().perform();
 		} else {
 			System.out.println("null motor location");
 		}
@@ -464,6 +457,8 @@ public class test615F {
 
 				act = new Actions(driver);
 				act.moveToElement(motorLocationlist.get(i)).click(motorLocationlist.get(i)).build().perform();
+
+				break;
 
 			}
 		}
@@ -664,7 +659,6 @@ public class test615F {
 				// act3.moveToElement(ele).click(ele).build().perform();
 				ele.click();
 				break;
-				
 
 			}
 		}
@@ -1109,6 +1103,7 @@ public class test615F {
 				// Thread.sleep(1200);
 				// act3.moveToElement(ele).click(ele).build().perform();
 				ele.click();
+				break;
 
 			}
 		}
@@ -2422,7 +2417,7 @@ public class test615F {
 
 	// INCOMING_POWER
 
-	@FindBy(xpath = "(//div[@aria-haspopup='listbox'])[20]")
+	@FindBy(xpath = "(//div[@aria-haspopup='listbox'])[17]")
 	WebElement INCOMING_POWER;
 
 	public void INCOMING_POWER() {
@@ -2617,17 +2612,16 @@ public class test615F {
 
 			String modelText = ADDITIONAL_PHOTOCELLlist.get(i).getText();
 
-
 			if (modelText.contains(model)) {
 
 				System.out.println(modelText);
 				WebElement ele = ADDITIONAL_PHOTOCELLlist.get(i);
 				Thread.sleep(500);
-				WebElement find=wait.until(ExpectedConditions.elementToBeClickable(ele));
-				
-				js=(JavascriptExecutor)driver;
+				WebElement find = wait.until(ExpectedConditions.elementToBeClickable(ele));
+
+				js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].click();", find);
-				
+
 				break;
 
 			}
@@ -3458,39 +3452,34 @@ public class test615F {
 
 	// --------------------------------------------------------------------------------------------------------------//
 
-	public void callFinalSubmission(String date, String modelva, String doorQuty, String spfValue, String doorWid,
-			String doorHeig, String doorloc, String motorLoc, String firstphotocel, String curtainColore,
-			String bottomCurtainColore, String sideguideColore, String motorCover, String drumHoodFascia,
-			String visionScreen, String windowqty, String incomingpower, String lineloadreacotr, String additionalCable,
-			String additionalphotcell, String additionalPhotocellHeight, String extreamPackage, String doornumber)
+	public void callFinalSubmission(String date, String modelva, String doornumber, String doorQuty, String spfValue,
+			String doorWid, String doorHeig, String doorloc, String motorLoc, String incomingpower)
 			throws InterruptedException {
 
 		DateFormateSend(date);
 		clickonModel(modelva);
 
 		modelSelection(modelva);
-		
-		System.out.println(doornumber);
 		doorNumberSendkey(doornumber);
 
 		doorQuantitySendkey(doorQuty);
-		
+
 		spf();
 		spfselection(spfValue);
-		
 		doorWidthSendkey(doorWid);
-
+//
 		doorHeightsendkeys(doorHeig);
 
-		//DoorLocation(doorloc);
-
-		//DoorLocationSelection(doorloc);
+		DoorLocation(doorloc);
+//
+//		
+		DoorLocationSelection(doorloc);
 
 		motorLocation(motorLoc);
 		motorLocationselection(motorLoc);
-
-		firstPhtocellHeght();
-		firstPhtocellHeghtselection(firstphotocel);
+//
+//		firstPhtocellHeght();
+//		firstPhtocellHeghtselection(firstphotocel);
 //		//CurtainFabricColore(curtainColore);
 //		//CurtainFabricColoreselection(curtainColore);
 //		//bottomcurtainColore(bottomCurtainColore);
@@ -3500,31 +3489,31 @@ public class test615F {
 //		sideGuideCoverselection(sideguideColore);
 //		MotorCover(motorCover);
 //		MotorCoverselection(motorCover);
-//		
+////		
 //		DRUM_HOOD(drumHoodFascia);
 //		DRUM_HOODselection(drumHoodFascia);
-//		VISION_AND_SCREEN();
-//		VISION_AND_SCREENelection(visionScreen);
-//
-//		WINDOW_QUANTITYSendKeys(windowqty);
+////		VISION_AND_SCREEN();
+////		VISION_AND_SCREENelection(visionScreen);
+////
+////		WINDOW_QUANTITYSendKeys(windowqty);
 		INCOMING_POWER();
-//
+////
 		INCOMING_POWERSelection(incomingpower);
-//
+////
 //		LINE_LOAD_REACTOR();
-//		LINE_LOAD_REACTORSelection(lineloadreacotr);
+		// LINE_LOAD_REACTORSelection(lineloadreacotr);
+//
+//		//ADDITIONAL_CABLESSendKeys(additionalCable);
 
-		//ADDITIONAL_CABLESSendKeys(additionalCable);
+		// ADDITIONAL_PHOTOCELL();
+		// ADDITIONAL_PHOTOCELLSelection(additionalphotcell);
 
-		//ADDITIONAL_PHOTOCELL();
-		//ADDITIONAL_PHOTOCELLSelection(additionalphotcell);
+		// ADDITIONAL_PHOTOCELLHeight();
 
-		//	ADDITIONAL_PHOTOCELLHeight();
-
-		//ADDITIONAL_PHOTOCELLHeightSelection(additionalPhotocellHeight);
-		//EXTREAM_PACKAGE();
-		//;
-		//EXTREAM_PACKAGE_SELECTION(extreamPackage);
+		// ADDITIONAL_PHOTOCELLHeightSelection(additionalPhotocellHeight);
+		// EXTREAM_PACKAGE();
+		// ;
+		// EXTREAM_PACKAGE_SELECTION(extreamPackage);
 
 		// clickOnSubmitButton();
 		// firstPhtocellHeght();
@@ -3555,8 +3544,8 @@ public class test615F {
 			if (modelText.equalsIgnoreCase(model)) {
 
 				WebElement ele = EXTREAM_PACKAGELIST.get(i);
-				
-				WebElement e1=wait.until(ExpectedConditions.elementToBeClickable(ele));
+
+				WebElement e1 = wait.until(ExpectedConditions.elementToBeClickable(ele));
 
 				act.moveToElement(e1).click(e1).build().perform();
 				// Thread.sleep(100);

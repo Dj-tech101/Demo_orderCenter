@@ -3,6 +3,7 @@ package pages;
 import java.time.Duration;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -35,10 +36,17 @@ public class orderCenter {
 	
 	public void ClickonEditBurton() throws InterruptedException {
 		
-		Thread.sleep(200);
-		wait= new WebDriverWait(driver, Duration.ofSeconds(20));
+	//	Thread.sleep(500);
+		try {
+			wait= new WebDriverWait(driver, Duration.ofSeconds(35));
+			
+			wait.until(ExpectedConditions.visibilityOf(editOrder)).click();
+			
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			System.out.println(e.getStackTrace());
+		}
 		
-		wait.until(ExpectedConditions.visibilityOf(editOrder)).click();
 	}
 	
 }

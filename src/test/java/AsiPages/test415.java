@@ -38,6 +38,17 @@ public class test415 {
 
 	}
 
+	@FindBy(xpath = "//table/tbody/tr[8]/td[3]")
+	private WebElement ProductPrice;
+
+	public String getProductPrice() {
+
+		wait = new WebDriverWait(driver, Duration.ofSeconds(25));
+
+		return wait.until(ExpectedConditions.visibilityOf(ProductPrice)).getText();
+
+	}
+
 //	locato
 //	
 //	public void waituntillallelement(Locator l1) {
@@ -96,12 +107,18 @@ public class test415 {
 
 			Actions act4 = new Actions(driver);
 
-			Thread.sleep(1000);
-			// act4.moveToElement(model).click(model).build().perform();
-			WebElement e2 = wait.until(ExpectedConditions
-					.refreshed(ExpectedConditions.presenceOfElementLocated(By.xpath("//table/tbody/tr[2]/td[2]/div"))));
+			try {
+				Thread.sleep(500);
+				// act4.moveToElement(model).click(model).build().perform();
+				WebElement e2 = wait.until(ExpectedConditions.visibilityOf(model));
 
-			e2.click();
+				e2.click();
+
+			} catch (Exception e) {
+				// TODO: handle exception
+
+				System.out.println(e.getStackTrace());
+			}
 
 		}
 
@@ -3432,7 +3449,11 @@ public class test415 {
 
 	}
 
-	public void updateTesting(String date, String modelvalue, String doorQua, String spfvalue, String doorWid, String doorhi, String motorloc, String firstcellHeiight, String curtainFabr, String bottambag, String stainlessSteel, String manualChainhoist, String escapGuidesele, String advanceLipped, String visionAndLinne, String controlPanelselection, String incommingPow, String additionalc, String additional, String additionalphoto, String cratingsele) throws InterruptedException {
+	public void updateTesting(String date, String modelvalue, String doorQua, String spfvalue, String doorWid,
+			String doorhi, String motorloc, String firstcellHeiight, String curtainFabr, String bottambag,
+			String stainlessSteel, String manualChainhoist, String escapGuidesele, String advanceLipped,
+			String visionAndLinne, String controlPanelselection, String incommingPow, String additionalc,
+			String additional, String additionalphoto, String cratingsele) throws InterruptedException {
 
 		DateFormateSend(date);
 		clickonModel(modelvalue);
